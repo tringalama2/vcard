@@ -1,6 +1,6 @@
 <?php
 
-namespace JeroenDesloovere\VCard\tests;
+namespace Tringalama2\VCard\tests;
 
 // required to load
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  * file that was distributed with this source code.
  */
 
-use JeroenDesloovere\VCard\VCard;
+use Tringalama2\VCard\VCard;
 
 /**
  * This class will test our VCard PHP Class which can generate VCards.
@@ -449,7 +449,7 @@ class VCardTest extends TestCase
 
     public function testChunkSplitUnicode()
     {
-        $class_handler  = new \ReflectionClass('JeroenDesloovere\VCard\VCard');
+        $class_handler  = new \ReflectionClass('Tringalama2\VCard\VCard');
         $method_handler = $class_handler->getMethod('chunk_split_unicode');
         $method_handler->setAccessible(true);
 
