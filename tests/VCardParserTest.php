@@ -1,9 +1,9 @@
 <?php
 
-namespace JeroenDesloovere\VCard\tests;
+namespace Tringalama2\VCard\tests;
 
-use JeroenDesloovere\VCard\VCard;
-use JeroenDesloovere\VCard\VCardParser;
+use Tringalama2\VCard\VCard;
+use Tringalama2\VCard\VCardParser;
 use PHPUnit\Framework\TestCase;
 
 /**

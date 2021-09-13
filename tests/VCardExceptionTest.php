@@ -1,6 +1,6 @@
 <?php
 
-namespace JeroenDesloovere\VCard;
+namespace Tringalama2\VCard;
 
 // required to load
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -20,7 +20,7 @@ use PHPUnit\Framework\TestCase;
 class VCardExceptionTest extends TestCase
 {
     /**
-     * @expectedException JeroenDesloovere\VCard\VCardException
+     * @expectedException Tringalama2\VCard\VCardException
      */
     public function testException()
     {

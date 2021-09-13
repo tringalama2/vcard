@@ -1,6 +1,6 @@
 <?php
 
-namespace JeroenDesloovere\VCard;
+namespace Tringalama2\VCard;
 
 /*
  * This file is part of the VCard PHP Class from Jeroen Desloovere.
