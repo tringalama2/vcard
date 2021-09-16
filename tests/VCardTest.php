@@ -1,7 +1,5 @@
 <?php
 
-namespace Tringalama2\VCard\tests;
-
 // required to load
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -15,6 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 
 use Tringalama2\VCard\VCard;
+use Tringalama2\VCard\VCardException;
 
 /**
  * This class will test our VCard PHP Class which can generate VCards.
@@ -162,6 +161,8 @@ class VCardTest extends TestCase
      */
     public function testAddPhotoWithRemoteEmptyJpgPhoto()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('Returned data is not an image.');
         $this->vcard->addPhoto(
             'https://raw.githubusercontent.com/jeroendesloovere/vcard/master/tests/empty.jpg',
             true
@@ -183,6 +184,8 @@ class VCardTest extends TestCase
      */
     public function testAddPhotoContentWithEmptyContent()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('Returned data is not an image.');
         $this->vcard->addPhotoContent('');
     }
 
@@ -215,6 +218,8 @@ class VCardTest extends TestCase
      */
     public function testAddLogoContentWithEmptyContent()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('Returned data is not an image.');
         $this->vcard->addLogoContent('');
     }
 
@@ -233,6 +238,8 @@ class VCardTest extends TestCase
      */
     public function testAddPhotoWithEmptyFile()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('Returned data is not an image.');
         $this->vcard->addPhoto(__DIR__ . '/emptyfile', true);
     }
 
@@ -244,6 +251,8 @@ class VCardTest extends TestCase
      */
     public function testAddLogoWithNoValue()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('Returned data is not an image.');
         $this->vcard->addLogo(__DIR__ . '/emptyfile', true);
     }
 
@@ -255,6 +264,8 @@ class VCardTest extends TestCase
      */
     public function testAddPhotoWithNoPhoto()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('Returned data is not an image.');
         $this->vcard->addPhoto(__DIR__ . '/wrongfile', true);
     }
 
@@ -266,6 +277,8 @@ class VCardTest extends TestCase
      */
     public function testAddLogoWithNoImage()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('Returned data is not an image.');
         $this->vcard->addLogo(__DIR__ . '/wrongfile', true);
     }
 
@@ -339,6 +352,8 @@ class VCardTest extends TestCase
      */
     public function testMultipleBirthdays()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('You can only set "birthday" once.');
         $this->assertEquals($this->vcard, $this->vcard->addBirthday('1'));
         $this->assertEquals($this->vcard, $this->vcard->addBirthday('2'));
     }
@@ -350,6 +365,8 @@ class VCardTest extends TestCase
      */
     public function testMultipleCategories()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('You can only set "categories" once.');
         $this->assertEquals($this->vcard, $this->vcard->addCategories(['1']));
         $this->assertEquals($this->vcard, $this->vcard->addCategories(['2']));
     }
@@ -361,6 +378,8 @@ class VCardTest extends TestCase
      */
     public function testMultipleCompanies()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('You can only set "company" once.');
         $this->assertEquals($this->vcard, $this->vcard->addCompany('1'));
         $this->assertEquals($this->vcard, $this->vcard->addCompany('2'));
     }
@@ -372,6 +391,8 @@ class VCardTest extends TestCase
      */
     public function testMultipleJobtitles()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('You can only set "jobtitle" once.');
         $this->assertEquals($this->vcard, $this->vcard->addJobtitle('1'));
         $this->assertEquals($this->vcard, $this->vcard->addJobtitle('2'));
     }
@@ -383,6 +404,8 @@ class VCardTest extends TestCase
      */
     public function testMultipleRoles()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('You can only set "role" once.');
         $this->assertEquals($this->vcard, $this->vcard->addRole('1'));
         $this->assertEquals($this->vcard, $this->vcard->addRole('2'));
     }
@@ -394,6 +417,8 @@ class VCardTest extends TestCase
      */
     public function testMultipleNames()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('You can only set "name" once.');
         $this->assertEquals($this->vcard, $this->vcard->addName('1'));
         $this->assertEquals($this->vcard, $this->vcard->addName('2'));
     }
@@ -405,6 +430,8 @@ class VCardTest extends TestCase
      */
     public function testMultipleNotes()
     {
+        $this->expectException(VCardException::class);
+        $this->expectErrorMessage('You can only set "note" once.');
         $this->assertEquals($this->vcard, $this->vcard->addNote('1'));
         $this->assertEquals($this->vcard, $this->vcard->addNote('2'));
     }

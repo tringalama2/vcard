@@ -1,11 +1,10 @@
 <?php
 
-namespace Tringalama2\VCard;
-
 // required to load
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
+use Tringalama2\VCard\VCardException;
 
 /*
  * This file is part of the VCard PHP Class from Jeroen Desloovere.
@@ -19,11 +18,9 @@ use PHPUnit\Framework\TestCase;
  */
 class VCardExceptionTest extends TestCase
 {
-    /**
-     * @expectedException Tringalama2\VCard\VCardException
-     */
     public function testException()
     {
+        $this->expectException(VCardException::class);
         throw new VCardException('Testing the VCard error.');
     }
 }

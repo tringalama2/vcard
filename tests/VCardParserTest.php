@@ -1,7 +1,5 @@
 <?php
 
-namespace Tringalama2\VCard\tests;
-
 use Tringalama2\VCard\VCard;
 use Tringalama2\VCard\VCardParser;
 use PHPUnit\Framework\TestCase;
@@ -16,6 +14,7 @@ class VCardParserTest extends TestCase
      */
     public function testOutOfRangeException()
     {
+        $this->expectException(OutOfBoundsException::class);
         $parser = new VCardParser('');
         $parser->getCardAtIndex(2);
     }
@@ -285,6 +284,7 @@ class VCardParserTest extends TestCase
      */
     public function testFileNotFound()
     {
+        $this->expectException(\RuntimeException::class);
         $parser = VCardParser::parseFromFile(__DIR__ . '/does-not-exist.vcf');
     }
 }
